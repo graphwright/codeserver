@@ -1,0 +1,36 @@
+services:
+  code-server:
+    image: local-code-server
+    environment:
+      PASSWORD: ${CODE_SERVER_PASSWORD}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    volumes:
+      - /workspace:/home/coder/workspace
+      - /workspace/.claude:/home/coder/.claude
+      - /workspace/.claude.json:/home/coder/.claude.json
+    restart: unless-stopped
+    networks:
+      - codeserver
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    networks:
+      - codeserver
+    depends_on:
+      - code-server
+
+networks:
+  codeserver:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

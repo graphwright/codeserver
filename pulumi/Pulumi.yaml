@@ -1,0 +1,3 @@
+name: codeserver
+runtime: python
+description: Code Server deployment on Digital Ocean droplet
