@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# Pulumi
+.pulumi/
+Pulumi.*.yaml
+!pulumi/Pulumi.prod.yaml
+
+# Secrets
+.env
+*.pem
+*.key
+*-key
+*-key.pub
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

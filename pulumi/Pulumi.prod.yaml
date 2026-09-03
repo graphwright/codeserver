@@ -1,0 +1,10 @@
+encryptionsalt: v1:HWo4Y/Mp3ec=:v1:uFiUzkdhrM6vPqnu:S+cHpMYbSfWvisXQX2wgK94pB6Js5g==
+config:
+  digitalocean:token:
+    secure: v1:DK/RybNo2grFIe/J:0TXQlAGsFewFpKtNJF0fxSF8fThD3gQbaDq6Ylgn+crGuMqA5hf291HUT8mCOGtsCzSMNfGLdYY42xyIGZVDGJc6ai2GP67kxo1+NVJn2NGpvHIrw2RL
+  codeserver:codeServerPassword:
+    secure: v1:U0KAlszH/enNuPTO:v4gIyQymHnUpQ+AgHkodKhluetbsqtZ8/A==
+  codeserver:anthropicApiKey:
+    secure: v1:1KyDgm7Vq4n+/WrJ:g1wJC5R4X4RPtMT3+vcaowp6fLR+meKM223RllGZLn7/lQB7p217Z2yJkJotgeAgU3XaBolA/IoF+P0gs9kV9fQeXbNrxSsEjF4tWlXRxOUNcYwNMskBkRnf0OAScJPZ7/steaLfwQNspU+QQodVSxPTFSisqRiQmD1Rkg==
+  codeserver:sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAMuU90NzY1v1eUe/eaoHtXwm4HbzrjZQOdnCGe1tq1l \n  codeserver-droplet"
+  codeserver:dropletSize: s-2vcpu-4gb
