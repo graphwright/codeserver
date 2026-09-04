@@ -43,6 +43,28 @@ pulumi up
 pulumi stack output droplet_ip
 ```
 
+### Deploying via GitHub Actions
+
+Pushing a tag matching `vX.Y.Z` (e.g. `v1.2.3`) triggers the
+`.github/workflows/pulumi-refresh.yml` workflow, which runs `pulumi up`
+against the `prod` stack to freshen the droplet with any infrastructure or
+config changes.
+
+This requires the following secrets to be configured in the GitHub repo
+settings (Settings → Secrets and variables → Actions):
+
+- `PULUMI_ACCESS_TOKEN` — Pulumi Cloud access token
+- `PULUMI_CONFIG_PASSPHRASE` — passphrase used to decrypt stack secrets
+- `DIGITALOCEAN_TOKEN` — Digital Ocean API token
+- `PULUMI_BACKEND_URL` — Pulumi backend URL, if not using the default Pulumi Cloud backend
+
+To deploy a new version:
+
+```bash
+git tag v1.2.3
+git push origin v1.2.3
+```
+
 ### Configure DNS
 
 Point `code.graphwright.io` A record to the droplet IP from the output above.
