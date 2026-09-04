@@ -39,9 +39,7 @@ jobs:
           work-dir: pulumi
           cloud-url: ${{ secrets.PULUMI_BACKEND_URL }}
         env:
-          # Stack secrets were encrypted locally with an empty passphrase;
-          # /dev/null supplies zero bytes, matching that empty passphrase.
-          PULUMI_CONFIG_PASSPHRASE_FILE: /dev/null
+          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
           DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_ACCESS_SECRET_KEY }}

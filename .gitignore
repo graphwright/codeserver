@@ -9,6 +9,7 @@ venv/
 # Pulumi
 .pulumi/
 Pulumi.*.yaml
+!pulumi/Pulumi.prod.yaml
 
 # Secrets
 .env
