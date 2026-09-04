@@ -32,9 +32,6 @@ jobs:
 
       - name: Install Pulumi CLI
         uses: pulumi/actions@v6
-        with:
-          command: version
-          cloud-url: ${{ secrets.PULUMI_BACKEND_URL }}
 
       - name: Pulumi up
         uses: pulumi/actions@v6
