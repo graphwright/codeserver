@@ -32,6 +32,9 @@ jobs:
 
       - name: Install Pulumi CLI
         uses: pulumi/actions@v6
+        with:
+          command: version
+          cloud-url: ${{ secrets.PULUMI_BACKEND_URL }}
 
       - name: Pulumi up
         uses: pulumi/actions@v6
@@ -41,6 +44,9 @@ jobs:
           work-dir: pulumi
           cloud-url: ${{ secrets.PULUMI_BACKEND_URL }}
         env:
-          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
+          # Stack secrets were encrypted locally with an empty passphrase;
+          # /dev/null supplies zero bytes, matching that empty passphrase.
+          PULUMI_CONFIG_PASSPHRASE_FILE: /dev/null
           DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_ACCESS_SECRET_KEY }}
